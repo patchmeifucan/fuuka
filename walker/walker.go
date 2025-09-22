@@ -10,23 +10,27 @@ import (
 	"path/filepath"
 )
 
-// Public
+/* Public */
 
-func Start() {
+func Walker_Start() {
 	var (
-		root string // figure out how we wanna handle getting the path from user
+		root string /* figure out how we wanna handle getting the path from user */
 	)
 
 	err := filepath.WalkDir(root, path_handler)
 	if err != nil {
-		// some error logic, we'll figure this out eventually
+		return
 	}
 }
 
-// Private
+/* Private */
 
 func path_handler(path string, entry os.DirEntry, err error) error {
-	// write some logic and handle YARA with an external package
+	if err != nil {
+		return err
+	}
+
+	/* write YARA logic */
 
 	return nil
 }
