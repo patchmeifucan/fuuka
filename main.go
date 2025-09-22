@@ -6,21 +6,21 @@ Author: patchmeifucan
 package main
 
 import (
-	"fmt"
-
 	"patchmeifucan/fuuka/args"
+	"patchmeifucan/fuuka/walker"
 )
 
 func main() {
 	var (
+		dir_path 		string
 		err_argerr 	error
-		file_path 	string
+		yara_path 	string
 	)
 
-	file_path, err_argerr = args.Arg_Handler()
+	dir_path, yara_path, err_argerr = args.Arg_Handler()
 	if err_argerr != nil {
 		panic(err_argerr)
 	}
 
-	fmt.Printf("File Path: %s\n", file_path)
+	walker.Walker_Start(dir_path, yara_path)
 }

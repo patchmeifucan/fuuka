@@ -5,7 +5,4 @@ Author: patchmeifucan
 
 package consts
 
-const (
-	FUUKA_DEFAULT_PATH 	string = "./" 
-	FUUKA_VERSION 			string = "v0.0.1"
-)
+const FUUKA_VERSION	string = "v0.0.1"
