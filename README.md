@@ -1,5 +1,6 @@
 # Fuuka - The Threat Hunting Filewalker
 ![Fuuka Banner](https://github.com/patchmeifucan/fuuka/blob/main/fuuka_banner.png)
+
 Fuuka is a tool written in Go that matches readable file data to a YARA ruleset in order to attempt to detect Malware and other IOCs. As of currently, Fuuka only performs scans against files to match against a compiled YARA ruleset. It is not intended to be a silver bullet solution, but rather a way to quickly enumerate a file system to find potential trails of compromise on a target system.
 
 ## Usage
