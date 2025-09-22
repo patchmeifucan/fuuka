@@ -9,12 +9,14 @@ Syntax:
 `fuuka <-p/--path> [scan path] --yara [YARA ruleset]`
 
 ## Requirements
-go
-yara
+<ul>
+<li>go</li>
+<li>yara</li>
+</ul>
 
 ## Authors
-[patchmeifucan](https://github.com/patchmeifucan)
-[haven7](https://github.com/HeavenSmiles)
+[patchmeifucan](https://github.com/patchmeifucan)<br>
+[haven7](https://github.com/HeavenSmiles)<br>
 
 ## License
 Fuuka is licensed under the AGPL 3.0, you can read the license [here](https://github.com/patchmeifucan/fuuka/blob/main/LICENSE)
