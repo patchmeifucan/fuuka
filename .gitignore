@@ -1,3 +1,4 @@
 fuuka
-test
-test.yar
+*.yar
+*.yara
+*.exe

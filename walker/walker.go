@@ -17,8 +17,8 @@ import (
 
 func Walker_Start(dir_path string, yara_path string) {
 	var (
-		err 				error
-		yara_rules 	*yara.Rules
+		err        error
+		yara_rules *yara.Rules
 	)
 
 	yara_rules, err = yara.LoadRules(yara_path)
@@ -42,15 +42,15 @@ Did not see need to call yara_scanner with ptr_ prefix, no need in my opinion
 */
 var (
 	/*
-	The size variable really doesn't need to be 500 I don't think
-	But these slices absolutely need a big size
-	We don't know how many files may get matched here
+		The size variable really doesn't need to be 500 I don't think
+		But these slices absolutely need a big size
+		We don't know how many files may get matched here
 	*/
-	matched_size 	int = 100
-	matched_files	[]string = make([]string, 0, matched_size)
-	matched_rules	[]yara.MatchRule = make([]yara.MatchRule, 0, matched_size)
+	matched_size  int              = 100
+	matched_files []string         = make([]string, 0, matched_size)
+	matched_rules []yara.MatchRule = make([]yara.MatchRule, 0, matched_size)
 
-	yara_scanner 	*yara.Scanner
+	yara_scanner *yara.Scanner
 )
 
 /*
@@ -66,18 +66,22 @@ func error_handler(err error) {
 
 func path_handler(path string, entry os.DirEntry, path_err error) error {
 	var (
-		err_yara 			error
-		yara_matches 	yara.MatchRules
+		err_yara     error
+		yara_matches yara.MatchRules
 	)
 
 	if path_err != nil {
 		return path_err
 	}
 
-	if !entry.IsDir() {
+	if !entry.IsDir() && entry.Type().IsRegular() {
+
 		fmt.Printf("Scanning: %s\n", path)
+
 		err_yara = yara_scanner.SetCallback(&yara_matches).ScanFile(path)
+
 		yara_match_handler(path, yara_matches, err_yara)
+
 	}
 
 	return nil
@@ -92,8 +96,10 @@ func yara_match_handler(file string, matches []yara.MatchRule, err error) {
 	}
 
 	/* Append to slices for printing out when walk is finished to show matches */
+
 	matched_files = append(matched_files, file)
 	matched_rules = append(matched_rules, matches...)
+
 }
 
 func yara_print_matches(path string) {
