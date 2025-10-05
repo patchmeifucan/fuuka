@@ -78,5 +78,6 @@ func help_menu() {
 	fmt.Printf("\nFlags:\n")
 	fmt.Printf("\n    -h, --help - Print out the help menu\n")
 	fmt.Printf("    -p, --path - Select path to scan, use . for pwd\n")
+	fmt.Printf("    -j, --jobs - Maximum amount of jobs Fuuka can spawn\n")
 	fmt.Printf("    --yara - Select YARA ruleset file to load\n")
 }
