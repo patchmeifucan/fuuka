@@ -7,7 +7,7 @@ Fuuka is a tool written in Go that matches readable file data to a YARA ruleset 
 For sake of performance, Fuuka will only load compiled YARA rulesets. You can compile a YARA ruleset from the command line with `yarac in.yar out` and it's ready for usage.
 
 Syntax:
-`fuuka <-p/--path> [scan path] --yara [YARA ruleset]`
+`fuuka <-p/--path> [scan path] <-j/--jobs> [jobs] --yara [YARA ruleset]`
 
 ## Requirements
 <ul>
